@@ -135,5 +135,34 @@ minetest.register_node("signs:no_trespass", {
 })
 
 
+minetest.register_node("signs:up_arrow", {
+	description = "Direction",
+	tiles = {"up_arrow.png"},
+	drawtype = "signlike",
+	inventory_image = "up_arrow.png",
+	wield_image = "up_arrow.png",
+	groups = {choppy=2,snappy=2,cracky=2},
+	paramtype="light",
+	paramtype2 = "wallmounted",
+	paramtype3 = "facedir",
+	on_screwdriver = true,
+	sunlight_propagates = true,
+	walkable = false,
+	sounds = default.node_sound_wood_defaults(),
+	metadata_name = "sign",
+	selection_box = {
+	   type="wallmounted",
+	   --wall_top = <default>
+	   --wall_bottom = <default>
+	   --wall_side = <default>
+	},
+	after_place_node = function(pos)
+	   local meta = minetest.get_meta(pos)
+	              meta:set_string('infotext', 'Direction' );
+	    end
+
+})
+
+
 
 
