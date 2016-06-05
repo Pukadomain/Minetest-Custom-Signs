@@ -1,6 +1,6 @@
 -- node registration --
 
-minetest.register_node("signs:high_voltage", {
+minetest.register_node("custom_signs:high_voltage", {
 	description = "High Voltage",
 	tiles = {"high_voltage.png"},
 	drawtype = "signlike",
@@ -28,7 +28,7 @@ minetest.register_node("signs:high_voltage", {
 })
 
 
-minetest.register_node("signs:open_sign", {
+minetest.register_node("custom_signs:open_sign", {
 	description = "We Are Open",
 	tiles = {"open_sign.png"},
 	drawtype = "signlike",
@@ -56,7 +56,7 @@ minetest.register_node("signs:open_sign", {
 })
 
 
-minetest.register_node("signs:radioactive_sign", {
+minetest.register_node("custom_signs:radioactive_sign", {
 	description = "Radioactive",
 	tiles = {"radioactive_sign.png"},
 	drawtype = "signlike",
@@ -84,7 +84,7 @@ minetest.register_node("signs:radioactive_sign", {
 })
 
 
-minetest.register_node("signs:restroom_sign", {
+minetest.register_node("custom_signs:restroom_sign", {
 	description = "Restroom",
 	tiles = {"restroom_sign.png"},
 	drawtype = "signlike",
@@ -112,7 +112,7 @@ minetest.register_node("signs:restroom_sign", {
 })
 
 
-minetest.register_node("signs:no_trespass", {
+minetest.register_node("custom_signs:no_trespass", {
 	description = "No Trespassing",
 	tiles = {"no_trespass.png"},
 	drawtype = "signlike",
@@ -140,7 +140,7 @@ minetest.register_node("signs:no_trespass", {
 })
 
 
-minetest.register_node("signs:up_arrow", {
+minetest.register_node("custom_signs:up_arrow", {
 	description = "Direction",
 	tiles = {"up_arrow.png"},
 	drawtype = "signlike",
@@ -170,5 +170,30 @@ minetest.register_node("signs:up_arrow", {
 })
 
 
+minetest.register_node("custom_signs:authorize", {
+	description = "Authorize",
+	tiles = {"authorize.png"},
+	drawtype = "signlike",
+	light_source = 7,
+	inventory_image = "authorize.png",
+	wield_image = "authorize.png",
+	groups = {choppy=2,snappy=2,cracky=2},
+	paramtype="light",
+	paramtype2 = "wallmounted",
+	sunlight_propagates = true,
+	walkable = false,
+	sounds = default.node_sound_wood_defaults(),
+	metadata_name = "sign",
+	selection_box = {
+	   type="wallmounted",
+	   --wall_top = <default>
+	   --wall_bottom = <default>
+	   --wall_side = <default>
+	},
+	after_place_node = function(pos)
+	   local meta = minetest.get_meta(pos)
+	              meta:set_string('infotext', 'Authorize' );
+	    end
 
+})
 
